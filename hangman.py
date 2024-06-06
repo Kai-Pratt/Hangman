@@ -1,7 +1,7 @@
 
 class HangmanGame:
-  def __init__(self):
-    pass
+  def __init__(self, word):
+    self.word = word
 
   def play(self):
     pass
@@ -13,6 +13,7 @@ class HangmanGame:
     pass
 
   def display_image(self):
+    #CVAHSD
     pass
 
   def display_guessed_letters(self):

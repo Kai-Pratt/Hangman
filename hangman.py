@@ -1,8 +1,9 @@
 import random
 
 class HangmanGame:
-  def __init__(self, wordbank):
-    self.word = wordbank
+  def __init__(self, word):
+    self.word = Word(word)
+    print(self.word.letters)
     
   def play(self):
     pass
@@ -25,12 +26,20 @@ class HangmanGame:
 class Word:
   def __init__(self, letters):
     self.letters = []
+    self.word = letters
+    self.letters.extend(letters) #Splits the letters string into an array of characters
 
-  def guess_letter(self):
-    pass
+  def guess_letter(self, char):
+    for letter in self.letters:
+      if char == letter:
+        #Do something 🤣
+        pass
 
-  def check_word(self):
-    pass
+  def check_word(self, guess):
+    if guess == self.word:
+      print("You got it :)") #Make the player win somehow
+    else:
+      print("Better luck next time :(") 
 
   def check_for_win(self):
     pass
@@ -60,7 +69,7 @@ class Wordbank:
     self.word = "temp"
   
   def create_words(self): #assigns self.word to a random word from the self.words array
-    self.word = self.words[random.randint(0, self.words.__len__())]
+    self.word = self.words[random.randint(0, self.words.__len__()) - 1]
     pass
 
   def get_word(self): #Returns the value of self.word
@@ -69,7 +78,6 @@ class Wordbank:
 if __name__ == "__main__":
   wordbank = Wordbank()
   wordbank.create_words()
-  #print(wordbank.get_word()) for debugging
   game = HangmanGame(wordbank.get_word())
   game.play()
   

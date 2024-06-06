@@ -42,6 +42,9 @@ class Pictures:
 
 class Wordbank:
   def __init__(self):
+    self.words = []
+  
+  def create_words():
     pass
 
   def get_word(self):
@@ -51,3 +54,5 @@ if __name__ == "__main__":
   wordbank = Wordbank
   game = Hangman(wordbank)
   game.play()
+  
+

@@ -15,3 +15,4 @@ Add your name here:
 - Dominic
 - Alex Thompson
 - Kai Pratt
+- Nino Matanguihan

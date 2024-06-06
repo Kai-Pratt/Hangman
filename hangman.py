@@ -1,7 +1,7 @@
 
 class HangmanGame:
-  def __init__(self):
-    pass
+  def __init__(self, wordbank):
+    self.wordbank = wordbank
 
   def play(self):
     pass
@@ -17,6 +17,7 @@ class HangmanGame:
 
   def display_guessed_letters(self):
     pass
+  
     
 
 class Word:
@@ -42,6 +43,9 @@ class Pictures:
 
 class Wordbank:
   def __init__(self):
+    self.words = []
+  
+  def create_words():
     pass
 
   def get_word(self):
@@ -49,5 +53,7 @@ class Wordbank:
 
 if __name__ == "__main__":
   wordbank = Wordbank
-  game = Hangman(wordbank)
+  game = HangmanGame(wordbank)
   game.play()
+  
+

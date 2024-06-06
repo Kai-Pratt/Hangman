@@ -21,8 +21,8 @@ class HangmanGame:
     
 
 class Word:
-  def __init__(self):
-    pass
+  def __init__(self, letters):
+    self.letters = []
 
   def guess_letter(self):
     pass

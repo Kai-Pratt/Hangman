@@ -1,7 +1,8 @@
+import random
 
 class HangmanGame:
   def __init__(self, wordbank):
-    self.wordbank = wordbank
+    self.word = wordbank
     
   def play(self):
     pass
@@ -44,17 +45,32 @@ class Pictures:
 
 class Wordbank:
   def __init__(self):
-    self.words = []
+    #All possible words listed below
+    self.words = ["button",
+                  "represent",
+                  "dangerous",
+                  "lounge",
+                  "ordinary",
+                  "pedestrian",
+                  "ferry",
+                  "cell",
+                  "resign",
+                  "lawyer"]
+
+    self.word = "temp"
   
-  def create_words():
+  def create_words(self): #assigns self.word to a random word from the self.words array
+    self.word = self.words[random.randint(0, self.words.__len__())]
     pass
 
-  def get_word(self):
-    pass
+  def get_word(self): #Returns the value of self.word
+    return self.word
 
 if __name__ == "__main__":
-  wordbank = Wordbank
-  game = HangmanGame(wordbank)
+  wordbank = Wordbank()
+  wordbank.create_words()
+  #print(wordbank.get_word()) for debugging
+  game = HangmanGame(wordbank.get_word())
   game.play()
   
 

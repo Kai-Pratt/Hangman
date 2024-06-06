@@ -1,7 +1,7 @@
 
 class HangmanGame:
-  def __init__(self):
-    pass
+  def __init__(self, wordbank):
+    self.wordbank = wordbank
 
   def play(self):
     pass

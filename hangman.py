@@ -17,6 +17,7 @@ class HangmanGame:
 
   def display_guessed_letters(self):
     pass
+  
     
 
 class Word:
@@ -52,7 +53,7 @@ class Wordbank:
 
 if __name__ == "__main__":
   wordbank = Wordbank
-  game = Hangman(wordbank)
+  game = HangmanGame(wordbank)
   game.play()
   
 

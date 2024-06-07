@@ -2,20 +2,33 @@ import random
 
 class HangmanGame:
   def __init__(self, word):
-    self.word = Word(word)
-    print(self.word.letters)
+    self.target = Word(word)
+    self.is_won = False
+    print(self.target.word)
     
   def play(self):
-    pass
+    self.target.guess_letter(input("Input char: ")) 
+    #Player guesses a character in the word
+    #Should make some failsafes
+    #additionally, we should give the user the ability to outright guess the word
+
+    if self.target.check_for_win() == True:
+      self.is_won = True
+    
+    if self.is_won == False:
+      self.play()
+    else:
+      print("You win!!")
+    
 
   def get_guess(self):
     pass
 
   def display_word(self):
+    #use the hidden_word array for this
     pass
 
   def display_image(self):
-    #CVAHSD
     pass
 
   def display_guessed_letters(self):
@@ -24,26 +37,34 @@ class HangmanGame:
     
 
 class Word:
-  def __init__(self, letters):
-    self.letters = []
-    self.word = letters
-    self.letters.extend(letters) #Splits the letters string into an array of characters
+  def __init__(self, word):
+    self.word = word #The target word
+    self.hidden_word = [] #An array that stores all of the indexes of self.word that the player has guessed
 
   def guess_letter(self, char):
-    for letter in self.letters:
-      if char == letter:
-        #Do something 🤣
-        pass
+    counter = 0 #Keeps track of the index of the array that we are looping through
+    print("word:", self.word)
+
+    for letter in self.word: #loops for every letter in self.word
+      if char == letter: #Checks for the match
+        if counter not in self.hidden_word: #stops double ups
+          self.hidden_word.append(counter) #add the index of the match if the player makes a correct match
+      counter += 1 #increments the index counter before the next check
+
+    print(self.hidden_word) #For debugging
 
   def check_word(self, guess):
     if guess == self.word:
-      print("You got it :)") #Make the player win somehow
+      return True
     else:
-      print("Better luck next time :(") 
+      return False
 
   def check_for_win(self):
-    pass
-
+    if self.hidden_word.__len__() == self.word.__len__(): 
+      #Checks if there are the same amount of discovered indexes as total indexes
+      #print("Do the thing")
+      return True
+    return False
 
 class Pictures:
   def __init__(self):
